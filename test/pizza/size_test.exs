@@ -21,4 +21,10 @@ defmodule PizzaOrder.Pizza.SizeTest do
 
     assert size |> Size.price === 15.0
   end
+
+  test "price/1" do
+    size = %Size{value: "S"}
+
+    assert size |> Size.to_s === "Small"
+  end
 end

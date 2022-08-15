@@ -8,4 +8,8 @@ defmodule PizzaOrder.Pizza do
   def price(%__MODULE__{size: size, topping: topping} = _pizza) do
     Size.price(size) + Topping.price(topping)
   end
+
+  def to_s(%__MODULE__{size: size, topping: topping} = _pizza) do
+    "#{Size.to_s(size)} Pizza with #{topping.value} topping"
+  end
 end

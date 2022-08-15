@@ -12,4 +12,12 @@ defmodule PizzaOrder.Pizza.Size do
   def price(%__MODULE__{value: "L"} = _size) do
     15.0
   end
+
+  def to_s(%__MODULE__{value: value} = _size) do
+    case value do
+      "S" -> "Small"
+      "M" -> "Medium"
+      "L" -> "Large"
+    end
+  end
 end
