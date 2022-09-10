@@ -20,4 +20,10 @@ defmodule PizzaOrder.Order do
     |> Enum.with_index(fn element, index -> {index, element} end)
     |> Enum.reduce("", fn({index, pizza}, fin) -> fin <> "#{index + 1}. #{Pizza.to_s(pizza)} - #{Pizza.price(pizza)}\n" end)
   end
+
+  def print(%__MODULE__{pizzas: pizzas} = order) do
+    IO.puts("Your order are:")
+    order |> list |> IO.puts
+    IO.puts("Total price: #{total_price(order)}")
+  end
 end
